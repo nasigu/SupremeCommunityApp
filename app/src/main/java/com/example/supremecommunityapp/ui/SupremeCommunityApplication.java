@@ -2,6 +2,7 @@ package com.example.supremecommunityapp.ui;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 
 import com.example.supremecommunityapp.di.component.DaggerSupremeCommunityComponent;
 import com.example.supremecommunityapp.di.component.SupremeCommunityComponent;
@@ -16,6 +17,10 @@ public class SupremeCommunityApplication extends Application {
 
     public static SupremeCommunityApplication getInstance(Activity activity){
         return  (SupremeCommunityApplication) activity.getApplication();
+    }
+
+    public static Context getContext(){
+        return SupremeCommunityApplication.getContext();
     }
 
     @Override

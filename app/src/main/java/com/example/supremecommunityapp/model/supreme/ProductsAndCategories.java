@@ -1,5 +1,6 @@
 package com.example.supremecommunityapp.model.supreme;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
@@ -11,7 +12,8 @@ public class ProductsAndCategories {
     public ProductsAndCategories() {
     }
 
-    private List<Product> products;
+    private List<Product> products = new ArrayList<Product>();
+
 
     public List<Product> getProducts() {
         return products;

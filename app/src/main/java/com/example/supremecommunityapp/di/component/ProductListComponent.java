@@ -2,7 +2,7 @@ package com.example.supremecommunityapp.di.component;
 
 import com.example.supremecommunityapp.di.module.ProductListModule;
 import com.example.supremecommunityapp.di.scopes.ProductListScope;
-import com.example.supremecommunityapp.ui.productList.ProductListFragment;
+import com.example.supremecommunityapp.ui.product_list.ProductListFragment;
 
 import dagger.Component;
 

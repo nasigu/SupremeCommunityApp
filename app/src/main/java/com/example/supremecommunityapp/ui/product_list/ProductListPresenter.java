@@ -1,4 +1,4 @@
-package com.example.supremecommunityapp.ui.productList;
+package com.example.supremecommunityapp.ui.product_list;
 
 
 import com.example.supremecommunityapp.domain.SupremeCommunityApi;
@@ -21,8 +21,6 @@ public class ProductListPresenter implements ProductListContract.Presenter {
 
     private CompositeDisposable subscriptions = new CompositeDisposable();
 
-    public MobileStock test;
-
 
     @Inject
     public ProductListPresenter(SupremeCommunityApi supremeCommunityApi, ProductListContract.View view){
@@ -37,14 +35,13 @@ public class ProductListPresenter implements ProductListContract.Presenter {
             @Override
             public void onSuccess(MobileStock mobileStock) {
                 Timber.d("onSuccessMethod");
-                view.updateAdapter(mobileStock);
-                test = mobileStock;
+                view.updateAdapter(mobileStock.getProductsAndCategories().convertAllToProducts());
+                view.showLoaded();
             }
 
             @Override
             public void onError(Throwable e) {
                 Timber.d("onErrorMethod");
-                test = new MobileStock();
             }
         };
 

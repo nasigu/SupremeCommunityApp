@@ -1,5 +1,6 @@
 package com.example.supremecommunityapp.model.supreme;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.example.supremecommunityapp.model.base.BaseProduct;
@@ -43,7 +44,7 @@ public class Product extends BaseProduct {
     }
 
     public String getImageUrlHi() {
-        return imageUrlHi;
+        return "https:" + imageUrlHi;
     }
 
     public void setImageUrlHi(String imageUrlHi) {
@@ -51,7 +52,7 @@ public class Product extends BaseProduct {
     }
 
     public Integer getPrice() {
-        return price;
+        return  price;
     }
 
     public void setPrice(Integer price) {

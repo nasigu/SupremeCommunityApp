@@ -3,7 +3,9 @@ package com.example.supremecommunityapp.model.base;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BaseProduct {
+import java.io.Serializable;
+
+public class BaseProduct implements Serializable {
     @SerializedName("name")
     @Expose
     private String name;

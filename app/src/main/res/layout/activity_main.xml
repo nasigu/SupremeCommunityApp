@@ -6,30 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainBottomBarActivity">
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.supremecommunityapp.ui.productList.ProductListFragment"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/product_list_fragment" />
+    <!--<fragment-->
+        <!--android:id="@+id/fragment"-->
+        <!--android:name="com.example.supremecommunityapp.ui.product_list.ProductListFragment"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--tools:layout="@layout/product_list_fragment" />-->
+
+    <FrameLayout
+        android:id="@+id/mainActivityContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
 
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:itemBackground="@color/pureWhite"
-        app:itemIconTint="@color/pureBlack"
-        app:itemTextColor="@color/colorAccent"
-        app:menu="@menu/bottom_navigation"/>
+    <!--<android.support.design.widget.BottomNavigationView-->
+        <!--android:id="@+id/navigationView"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="0dp"-->
+        <!--android:layout_marginStart="0dp"-->
+        <!--android:background="?android:attr/windowBackground"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:itemBackground="@color/pureWhite"-->
+        <!--app:itemIconTint="@color/pureBlack"-->
+        <!--app:itemTextColor="@color/colorAccent"-->
+        <!--app:menu="@menu/bottom_navigation"/>-->
 
 </android.support.constraint.ConstraintLayout>

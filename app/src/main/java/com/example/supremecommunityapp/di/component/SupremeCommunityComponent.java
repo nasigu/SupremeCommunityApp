@@ -5,6 +5,7 @@ import com.example.supremecommunityapp.di.module.SupremeCommunityModule;
 import com.example.supremecommunityapp.di.scopes.SupremeCommunityApplicationScope;
 import com.example.supremecommunityapp.domain.SupremeCommunityApi;
 import com.example.supremecommunityapp.ui.SupremeCommunityApplication;
+import com.squareup.picasso.Picasso;
 
 import dagger.Component;
 
@@ -13,6 +14,6 @@ import dagger.Component;
 public interface SupremeCommunityComponent {
 //
     SupremeCommunityApi getSupremeCommunityService();
+    Picasso getPicasso();
     void inject(SupremeCommunityApplication supremeCommunityApplication);
-//    Picasso getPicasso();
 }

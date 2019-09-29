@@ -1,41 +1,66 @@
 package com.example.supremecommunityapp.ui;
 
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import com.example.supremecommunityapp.R;
 import com.example.supremecommunityapp.di.component.DaggerMainBottomBarComponent;
 import com.example.supremecommunityapp.di.component.MainBottomBarComponent;
 import com.example.supremecommunityapp.di.module.MainBottomBarModule;
 import com.example.supremecommunityapp.domain.SupremeCommunityApi;
+import com.example.supremecommunityapp.model.supreme.Product;
+import com.example.supremecommunityapp.ui.helpers.ArgumentKeys;
+import com.example.supremecommunityapp.ui.product_detail.ProductDetailFragment;
+import com.example.supremecommunityapp.ui.product_list.ProductListFragment;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainBottomBarActivity extends AppCompatActivity {
 
-//    RecyclerView recyclerView;
+    @Inject
+    ProductListFragment productListFragment;
 
-//    Picasso picasso;
-    @BindView(R.id.navigationView)
-    BottomNavigationView bottomNavigationView;
+    @Inject
+    ProductDetailFragment productDetailFragment;
 
     @Inject
     SupremeCommunityApi supremeCommunityApi;
 
-//    @Inject
-//    ProductListContract.Presenter presenter;
+    FrameLayout mainContainer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bind();
         inject();
-        ButterKnife.bind(this);
+        initFragment();
     }
+
+    private void bind(){
+        mainContainer = findViewById(R.id.mainActivityContainer);
+    }
+
+    private void initFragment(){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.mainActivityContainer, productListFragment)
+                .commit();
+    }
+
+    public void startWithDetailFragment(Product product){
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(ArgumentKeys.PRODUCT_DETAIL_KEY, product);
+        productDetailFragment.setArguments(arguments);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.mainActivityContainer, productDetailFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
 
     private void inject(){
         MainBottomBarComponent mainBottomBarComponent = DaggerMainBottomBarComponent.builder()

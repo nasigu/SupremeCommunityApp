@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="pureWhite">#FFFFFF</color>
     <color name="pureBlack">#000000</color>
+    <color name="unloadItem">#E6E6E6</color>
 </resources>
