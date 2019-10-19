@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import com.example.supremecommunityapp.R;
 import com.example.supremecommunityapp.model.supreme.Product;
 import com.example.supremecommunityapp.ui.product_list.ProductListContract;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -74,7 +73,7 @@ public class ProductListAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-    public void showSucces(){
+    public void showSuccess(){
 
     }
 

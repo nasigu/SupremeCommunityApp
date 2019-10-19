@@ -55,6 +55,8 @@ public class ProductListFragment extends Fragment implements ProductListContract
 
     }
 
+
+
     @Override
     public void onProductDetailClick(Product product){
        if(this.getActivity() instanceof MainBottomBarActivity){
@@ -77,7 +79,8 @@ public class ProductListFragment extends Fragment implements ProductListContract
 
     }
 
-    private void bind(){
+    @Override
+    public void bind(){
         rvProductList = view.findViewById(R.id.rvProductList);
         progressBar = view.findViewById(R.id.progressBar);
     }

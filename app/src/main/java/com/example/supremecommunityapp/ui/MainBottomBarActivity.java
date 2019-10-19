@@ -2,6 +2,8 @@ package com.example.supremecommunityapp.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.supremecommunityapp.R;
@@ -29,6 +31,8 @@ public class MainBottomBarActivity extends AppCompatActivity {
 
     FrameLayout mainContainer;
 
+    private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +43,14 @@ public class MainBottomBarActivity extends AppCompatActivity {
         initFragment();
     }
 
+
     private void bind(){
         mainContainer = findViewById(R.id.mainActivityContainer);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_backarrow);
+
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
     }
 
     private void initFragment(){

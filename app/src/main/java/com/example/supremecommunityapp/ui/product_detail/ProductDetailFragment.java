@@ -28,6 +28,7 @@ public class ProductDetailFragment extends Fragment implements ProductDetailCont
 
     ImageView ivImage;
     TextView detailProductName;
+    TextView detailProductDescribe;
     View view;
 
     @Inject
@@ -56,9 +57,11 @@ public class ProductDetailFragment extends Fragment implements ProductDetailCont
     }
 
 
+    @Override
     public void bind(){
         ivImage = view.findViewById(R.id.ivImage);
         detailProductName = view.findViewById(R.id.detailProductName);
+        detailProductDescribe = view.findViewById(R.id.detailProductDescribe);
     }
 
     @Override

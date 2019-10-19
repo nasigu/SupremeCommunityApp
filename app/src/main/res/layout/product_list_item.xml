@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:layout_gravity="center"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
         android:id="@+id/productImage"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/img_lights"
         android:layout_gravity="center"/>
 

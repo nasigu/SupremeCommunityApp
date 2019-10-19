@@ -11,6 +11,8 @@ import retrofit2.http.GET;
 
 public interface SupremeCommunityApi {
     @GET("mobile_stock.json")
-//    Call<ProductsAndCategories> getMobileStock();
     Single<MobileStock> getMobileStock();
+
+    @GET("mobile_stock.json")
+    Single<MobileStock> getProductById();
 }

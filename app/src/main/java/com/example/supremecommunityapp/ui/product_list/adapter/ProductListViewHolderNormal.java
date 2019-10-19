@@ -29,29 +29,24 @@ public class ProductListViewHolderNormal extends ProductListViewHolder {
     @Override
     public void bind(Product product) {
         productName.setText(product.getName());
-        //productPrice.setText(product.getPrice().toString().substring(0,product.getPrice().toString().length() - 2) + "$");
         if(product.getImageUrlHi() != ""){
             picasso.with(productImage.getContext())
                     .load(product.getImageUrlHi())
                     .into(productImage);
         }
-        //productImage.setImageURI(Uri.parse(product.getImageUrlHi()));
     }
 
     @Override
     public void showLoading(){
         productName.setBackgroundColor(itemView.getResources().getColor(R.color.unloadItem));
         productPrice.setBackgroundColor(itemView.getResources().getColor(R.color.unloadItem));
-//        productName.setHeight((int)ScaleConverter.dpFromPx(25,itemView.getContext()));
-//        productPrice.setHeight((int)ScaleConverter.dpFromPx(25,itemView.getContext()));
-        //productImage.setImageDrawable(itemView.getResources().getDrawable(R.drawable.unloaded_image));
+        productName.getLayoutParams().height = (int)ScaleConverter.dpFromPx(25,itemView.getContext());
     }
 
     @Override
     public void showLoaded(){
         productName.setBackgroundColor(itemView.getResources().getColor(R.color.pureWhite));
         productPrice.setBackgroundColor(itemView.getResources().getColor(R.color.pureWhite));
-//        productName.setHeight((int)ScaleConverter.dpFromPx(25,itemView.getContext()));
-//        productPrice.setHeight((int)ScaleConverter.dpFromPx(25,itemView.getContext()));
+        productName.getLayoutParams().height = (int)ScaleConverter.dpFromPx(35,itemView.getContext());
     }
 }

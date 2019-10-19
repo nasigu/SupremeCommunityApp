@@ -99,51 +99,5 @@ public class Product extends BaseProduct {
         this.salePriceEuro = salePriceEuro;
     }
 
-//    @SerializedName("unique_image_url_prefixes")
-//    @Expose
-//    private List<Object> uniqueImageUrlPrefixes = null;
-//    @SerializedName("products_and_categories")
-//    @Expose
-//    private ProductsAndCategories productsAndCategories;
-//    @SerializedName("release_date")
-//    @Expose
-//    private String releaseDate;
-//    @SerializedName("release_week")
-//    @Expose
-//    private String releaseWeek;
-//
-//    public List<Object> getUniqueImageUrlPrefixes() {
-//        return uniqueImageUrlPrefixes;
-//    }
-//
-//    public void setUniqueImageUrlPrefixes(List<Object> uniqueImageUrlPrefixes) {
-//        this.uniqueImageUrlPrefixes = uniqueImageUrlPrefixes;
-//    }
-//
-//    public ProductsAndCategories getProductsAndCategories() {
-//        return productsAndCategories;
-//    }
-//
-//    public void setProductsAndCategories(ProductsAndCategories productsAndCategories) {
-//        this.productsAndCategories = productsAndCategories;
-//    }
-//
-//    public String getReleaseDate() {
-//        return releaseDate;
-//    }
-//
-//    public void setReleaseDate(String releaseDate) {
-//        this.releaseDate = releaseDate;
-//    }
-//
-//    public String getReleaseWeek() {
-//        return releaseWeek;
-//    }
-//
-//    public void setReleaseWeek(String releaseWeek) {
-//        this.releaseWeek = releaseWeek;
-//    }
-
-
 
 }

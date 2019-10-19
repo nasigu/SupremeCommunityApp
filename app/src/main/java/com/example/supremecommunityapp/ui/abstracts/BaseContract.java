@@ -6,9 +6,10 @@ public class BaseContract {
         public void subscribe();
         public void unsubscribe();
         public void attach(T view);
+
     }
 
     public interface View {
-
+        public void bind();
     }
 }

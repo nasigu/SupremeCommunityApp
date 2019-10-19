@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.MainBottomBarActivity">
 
-    <!--<fragment-->
-        <!--android:id="@+id/fragment"-->
-        <!--android:name="com.example.supremecommunityapp.ui.product_list.ProductListFragment"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--tools:layout="@layout/product_list_fragment" />-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/HeaderBar"
+        app:theme="@style/Theme.AppCompat"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp"
+        />
 
     <FrameLayout
         android:id="@+id/mainActivityContainer"
@@ -38,4 +40,4 @@
         <!--app:itemTextColor="@color/colorAccent"-->
         <!--app:menu="@menu/bottom_navigation"/>-->
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
