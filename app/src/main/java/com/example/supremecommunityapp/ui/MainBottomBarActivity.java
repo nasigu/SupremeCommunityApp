@@ -1,5 +1,6 @@
 package com.example.supremecommunityapp.ui;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -53,6 +54,12 @@ public class MainBottomBarActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getSupportFragmentManager().putFragment(outState, "ProductListFragment", productListFragment);
+    }
+
     private void initFragment(){
         getSupportFragmentManager()
                 .beginTransaction()
@@ -60,14 +67,45 @@ public class MainBottomBarActivity extends AppCompatActivity {
                 .commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //onSaveInstanceState(new Bundle());
+        restoreProductListFragment();
+    }
+
+//    public void startWithDetailFragment(Product product){
+//        Bundle arguments = new Bundle();
+//        arguments.putSerializable(ArgumentKeys.PRODUCT_DETAIL_KEY, product);
+//        productDetailFragment.setArguments(arguments);
+//
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.mainActivityContainer, productDetailFragment)
+//                .addToBackStack(null)
+//                .commit();
+//    }
+
     public void startWithDetailFragment(Product product){
         Bundle arguments = new Bundle();
         arguments.putSerializable(ArgumentKeys.PRODUCT_DETAIL_KEY, product);
         productDetailFragment.setArguments(arguments);
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                .hide(productListFragment)
+                .commit();
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.mainActivityContainer, productDetailFragment)
+                .add(R.id.mainActivityContainer, productDetailFragment)
                 .addToBackStack(null)
+                .commit();
+    }
+
+    public void restoreProductListFragment(){
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .show(productListFragment)
                 .commit();
     }
 

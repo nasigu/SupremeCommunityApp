@@ -1,6 +1,8 @@
 package com.example.supremecommunityapp.ui.product_list.adapter;
 
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ import com.squareup.picasso.Picasso;
 
 
 public class ProductListViewHolderNormal extends ProductListViewHolder {
+
     private ImageView productImage;
     private TextView productName;
     private TextView productPrice;
@@ -41,6 +44,17 @@ public class ProductListViewHolderNormal extends ProductListViewHolder {
         productName.setBackgroundColor(itemView.getResources().getColor(R.color.unloadItem));
         productPrice.setBackgroundColor(itemView.getResources().getColor(R.color.unloadItem));
         productName.getLayoutParams().height = (int)ScaleConverter.dpFromPx(25,itemView.getContext());
+        RunAnimation();
+    }
+
+    private void RunAnimation()
+    {
+        Animation a = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.textview_loading_anim);
+        a.reset();
+        productName.clearAnimation();
+        productName.startAnimation(a);
+        productPrice.clearAnimation();
+        productPrice.startAnimation(a);
     }
 
     @Override

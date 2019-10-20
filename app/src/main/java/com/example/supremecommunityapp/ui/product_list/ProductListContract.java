@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import com.example.supremecommunityapp.model.supreme.Product;
 import com.example.supremecommunityapp.ui.abstracts.BaseContract;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductListContract {
@@ -15,7 +16,7 @@ public class ProductListContract {
         void showLoading();
         void showLoaded();
         void showError(String error);
-        void updateAdapter(List<Product> products);
+        void updateAdapter(ArrayList<Product> products);
         void onProductDetailClick(Product product);
 
     }

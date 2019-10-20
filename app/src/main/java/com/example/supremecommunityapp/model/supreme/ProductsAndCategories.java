@@ -12,19 +12,19 @@ public class ProductsAndCategories {
     public ProductsAndCategories() {
     }
 
-    private List<Product> products = new ArrayList<Product>();
+    private ArrayList<Product> products = new ArrayList<Product>();
 
 
-    public List<Product> getProducts() {
+    public ArrayList<Product> getProducts() {
         return products;
 
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
 
-    public List<Product> convertAllToProducts(){
+    public ArrayList<Product> convertAllToProducts(){
         products.addAll(shirts);
         products.addAll(bags);
         products.addAll(accessories);

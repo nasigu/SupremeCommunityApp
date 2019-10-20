@@ -1,5 +1,6 @@
 package com.example.supremecommunityapp.ui.product_detail;
 
+import com.example.supremecommunityapp.model.supreme.product_detail.ProductDetail;
 import com.example.supremecommunityapp.ui.abstracts.BaseContract;
 
 public class ProductDetailContract {
@@ -9,11 +10,11 @@ public class ProductDetailContract {
         void showLoading();
         void showLoaded();
         void showError(String error);
-        void updateContent();
+        void updateContent(ProductDetail productDetail);
 
     }
 
     public interface Presenter extends BaseContract.Presenter<ProductDetailContract.View>{
-        void loadData();
+        void loadData(int id);
     }
 }

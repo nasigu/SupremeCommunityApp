@@ -29,7 +29,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="SUpreme anorak fdsFddfdsf sdfsdfsdadf fdsgsdfgdsfg FFFfsdfsdfds"
                 android:background="@color/unloadItem"/>
 
             <TextView
@@ -40,7 +39,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text=""
                 android:background="@color/unloadItem"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

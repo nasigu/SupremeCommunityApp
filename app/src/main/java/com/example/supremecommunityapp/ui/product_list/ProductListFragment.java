@@ -31,6 +31,11 @@ public class ProductListFragment extends Fragment implements ProductListContract
     ProgressBar progressBar;
     View view;
 
+    ArrayList<Product> productList;
+
+    private final String PRODUCT_KEY = "PRODUCT_KEY";
+    private final String BUNDLE_RECYCLER_LAYOUT = "BUNDLE_RECYCLER_LAYOUT";
+
     @Inject
     public ProductListContract.Presenter presenter;
 
@@ -48,14 +53,14 @@ public class ProductListFragment extends Fragment implements ProductListContract
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        if (savedInstanceState != null) {
+            //probably orientation change
+            int i = 0;
+        } else {
+            int j = 0;
+        }
 
     }
-
-    public void onDetailClicked(){
-
-    }
-
-
 
     @Override
     public void onProductDetailClick(Product product){
@@ -65,14 +70,55 @@ public class ProductListFragment extends Fragment implements ProductListContract
     }
 
     @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if(savedInstanceState != null){
+            productList = savedInstanceState.getParcelableArrayList(PRODUCT_KEY);
+            rvProductList = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(PRODUCT_KEY, productList);
+        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, rvProductList.getLayoutManager().onSaveInstanceState());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        onSaveInstanceState(new Bundle());
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.product_list_fragment, container, false);
         bind();
         setupAdapter();
         showLoading();
-        presenter.loadData();
+
+        if (savedInstanceState != null) {
+            productList = savedInstanceState.getParcelableArrayList(PRODUCT_KEY);
+            rvProductList = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
+            updateAdapter(productList);
+
+        }else{
+            List<Product> initObject = new ArrayList<>();
+            for (int i = 0; i < 8; i++) {
+                Product product = new Product();
+                product.setName("");
+                product.setImageUrlHi("");
+                initObject.add(product);
+            }
+            productListAdapter.preloadList(initObject);
+            presenter.loadData();
+
+        }
+
         return view;
     }
+
 
     @Override
     public void showProgress(Boolean show) {
@@ -89,14 +135,7 @@ public class ProductListFragment extends Fragment implements ProductListContract
         rvProductList.setAdapter(productListAdapter);
         gridLayoutManager = new GridLayoutManager(this.getActivity(),2);
         rvProductList.setLayoutManager(gridLayoutManager);
-        List<Product> initObject = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            Product product = new Product();
-            product.setName("");
-            product.setImageUrlHi("");
-            initObject.add(product);
-        }
-        productListAdapter.preloadList(initObject);
+
     }
 
     @Override
@@ -115,8 +154,9 @@ public class ProductListFragment extends Fragment implements ProductListContract
     }
 
     @Override
-    public void updateAdapter(List<Product> products) {
-        productListAdapter.updateRepositoriesList(products);
+    public void updateAdapter(ArrayList<Product> products) {
+        productList = products;
+        productListAdapter.updateRepositoriesList(productList);
     }
 
 

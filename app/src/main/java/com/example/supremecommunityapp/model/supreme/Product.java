@@ -1,13 +1,15 @@
 package com.example.supremecommunityapp.model.supreme;
 
-import java.io.Serializable;
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.example.supremecommunityapp.model.base.BaseProduct;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Product extends BaseProduct {
+import java.io.Serializable;
+
+public class Product extends BaseProduct implements Serializable, Parcelable {
 
 
     @SerializedName("image_url")
@@ -34,6 +36,54 @@ public class Product extends BaseProduct {
     @SerializedName("sale_price_euro")
     @Expose
     private Integer salePriceEuro;
+
+    public Product(){
+
+    }
+
+    public Product(Parcel parcel){
+        imageUrl = parcel.readString();
+        imageUrlHi = parcel.readString();
+        if (parcel.readByte() == 0) {
+            price = null;
+        } else {
+            price = parcel.readInt();
+        }
+        if (parcel.readByte() == 0) {
+            salePrice = null;
+        } else {
+            salePrice = parcel.readInt();
+        }
+        byte tmpNewItem = parcel.readByte();
+        newItem = tmpNewItem == 0 ? null : tmpNewItem == 1;
+        if (parcel.readByte() == 0) {
+            position = null;
+        } else {
+            position = parcel.readInt();
+        }
+        if (parcel.readByte() == 0) {
+            priceEuro = null;
+        } else {
+            priceEuro = parcel.readInt();
+        }
+        if (parcel.readByte() == 0) {
+            salePriceEuro = null;
+        } else {
+            salePriceEuro = parcel.readInt();
+        }
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 
     public String getImageUrl() {
         return imageUrl;
@@ -97,6 +147,49 @@ public class Product extends BaseProduct {
 
     public void setSalePriceEuro(Integer salePriceEuro) {
         this.salePriceEuro = salePriceEuro;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(imageUrl);
+        parcel.writeString(imageUrlHi);
+        if (price == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(price);
+        }
+        if (salePrice == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(salePrice);
+        }
+        parcel.writeByte((byte) (newItem == null ? 0 : newItem ? 1 : 2));
+        if (position == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(position);
+        }
+        if (priceEuro == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(priceEuro);
+        }
+        if (salePriceEuro == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(salePriceEuro);
+        }
     }
 
 

@@ -87,7 +87,7 @@ public class ProductStyle {
     }
 
     public String getImageUrlHi() {
-        return imageUrlHi;
+        return "https:" + imageUrlHi;
     }
 
     public void setImageUrlHi(String imageUrlHi) {
