@@ -1,6 +1,7 @@
 package com.example.supremecommunityapp.ui.product_detail;
 
 import com.example.supremecommunityapp.model.supreme.product_detail.ProductDetail;
+import com.example.supremecommunityapp.model.supreme.product_detail.ProductStyle;
 import com.example.supremecommunityapp.ui.abstracts.BaseContract;
 
 public class ProductDetailContract {
@@ -11,6 +12,7 @@ public class ProductDetailContract {
         void showLoaded();
         void showError(String error);
         void updateContent(ProductDetail productDetail);
+        void onStyleButtonClicked(ProductStyle productStyle);
 
     }
 

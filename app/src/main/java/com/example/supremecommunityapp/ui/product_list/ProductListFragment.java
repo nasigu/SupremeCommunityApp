@@ -53,43 +53,37 @@ public class ProductListFragment extends Fragment implements ProductListContract
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if (savedInstanceState != null) {
-            //probably orientation change
-            int i = 0;
-        } else {
-            int j = 0;
-        }
 
     }
 
     @Override
-    public void onProductDetailClick(Product product){
-       if(this.getActivity() instanceof MainBottomBarActivity){
-           ((MainBottomBarActivity) this.getActivity()).startWithDetailFragment(product);
-       }
+    public void onProductDetailClick(Product product) {
+        if (this.getActivity() instanceof MainBottomBarActivity) {
+            ((MainBottomBarActivity) this.getActivity()).startWithDetailFragment(product);
+        }
     }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             productList = savedInstanceState.getParcelableArrayList(PRODUCT_KEY);
             rvProductList = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
         }
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelableArrayList(PRODUCT_KEY, productList);
-        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, rvProductList.getLayoutManager().onSaveInstanceState());
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        onSaveInstanceState(new Bundle());
-    }
+//    @Override
+//    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        outState.putParcelableArrayList(PRODUCT_KEY, productList);
+//        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, rvProductList.getLayoutManager().onSaveInstanceState());
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        onSaveInstanceState(new Bundle());
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,23 +92,15 @@ public class ProductListFragment extends Fragment implements ProductListContract
         setupAdapter();
         showLoading();
 
-        if (savedInstanceState != null) {
-            productList = savedInstanceState.getParcelableArrayList(PRODUCT_KEY);
-            rvProductList = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
-            updateAdapter(productList);
-
-        }else{
-            List<Product> initObject = new ArrayList<>();
-            for (int i = 0; i < 8; i++) {
-                Product product = new Product();
-                product.setName("");
-                product.setImageUrlHi("");
-                initObject.add(product);
-            }
-            productListAdapter.preloadList(initObject);
-            presenter.loadData();
-
-        }
+//        List<Product> initObject = new ArrayList<>();
+//        for (int i = 0; i < 8; i++) {
+//            Product product = new Product();
+//            product.setName("");
+//            product.setImageUrlHi("");
+//            initObject.add(product);
+//        }
+        //productListAdapter.preloadList(initObject);
+        presenter.loadData(1);
 
         return view;
     }
@@ -126,14 +112,14 @@ public class ProductListFragment extends Fragment implements ProductListContract
     }
 
     @Override
-    public void bind(){
+    public void bind() {
         rvProductList = view.findViewById(R.id.rvProductList);
         progressBar = view.findViewById(R.id.progressBar);
     }
 
-    private void setupAdapter(){
+    private void setupAdapter() {
         rvProductList.setAdapter(productListAdapter);
-        gridLayoutManager = new GridLayoutManager(this.getActivity(),2);
+        gridLayoutManager = new GridLayoutManager(this.getActivity(), 2);
         rvProductList.setLayoutManager(gridLayoutManager);
 
     }
@@ -158,7 +144,6 @@ public class ProductListFragment extends Fragment implements ProductListContract
         productList = products;
         productListAdapter.updateRepositoriesList(productList);
     }
-
 
 
     private void inject() {

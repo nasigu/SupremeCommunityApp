@@ -22,7 +22,7 @@ public class ProductListContract {
     }
 
     public interface Presenter extends BaseContract.Presenter<View>{
-        void loadData();
+        void loadData(final int page);
         void loadDataAll();
     }
 

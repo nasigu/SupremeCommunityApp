@@ -1,5 +1,6 @@
 package com.example.supremecommunityapp.ui.product_list.adapter;
 
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import com.example.supremecommunityapp.model.supreme.Product;
 import com.example.supremecommunityapp.ui.product_list.ProductListContract;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -62,8 +64,15 @@ public class ProductListAdapter extends RecyclerView.Adapter {
     public void updateRepositoriesList(List<Product> products) {
         this.products = null;
         this.products = products;
-        preload = false;
-        notifyDataSetChanged();
+//        preload = false;
+//        notifyDataSetChanged();
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new ProductListDiffUtil(this.products, products));
+        diffResult.dispatchUpdatesTo(this);
+    }
+
+    public void updateList(ArrayList<Product> newList) {
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new ProductListDiffUtil(this.products, newList));
+        diffResult.dispatchUpdatesTo(this);
     }
 
     public void preloadList(List<Product> products) {

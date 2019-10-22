@@ -45,12 +45,12 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         };
 
         try{
-            Disposable mobileStock = supremeCommunityApi.getProductById(id)
+            Disposable product = supremeCommunityApi.getProductById(id)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(productDetailObservable) ;
 
-            subscriptions.add(mobileStock);
+            subscriptions.add(product);
         }catch(Exception e){
             Timber.d(e);
         }

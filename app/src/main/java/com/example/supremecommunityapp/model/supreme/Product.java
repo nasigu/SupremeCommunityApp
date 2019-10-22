@@ -86,7 +86,7 @@ public class Product extends BaseProduct implements Serializable, Parcelable {
     };
 
     public String getImageUrl() {
-        return imageUrl;
+        return "https:" + imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {

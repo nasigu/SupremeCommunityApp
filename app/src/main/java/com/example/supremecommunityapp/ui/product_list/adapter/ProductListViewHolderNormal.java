@@ -32,9 +32,10 @@ public class ProductListViewHolderNormal extends ProductListViewHolder {
     @Override
     public void bind(Product product) {
         productName.setText(product.getName());
-        if(product.getImageUrlHi() != ""){
+        if(product.getImageUrl() != ""){
             picasso.with(productImage.getContext())
-                    .load(product.getImageUrlHi())
+                    .load(product.getImageUrl())
+                    .fit()
                     .into(productImage);
         }
     }

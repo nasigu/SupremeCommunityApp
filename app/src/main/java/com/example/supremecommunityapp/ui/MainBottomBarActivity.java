@@ -49,8 +49,6 @@ public class MainBottomBarActivity extends AppCompatActivity {
         mainContainer = findViewById(R.id.mainActivityContainer);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_backarrow);
-
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
     }
 
@@ -70,21 +68,16 @@ public class MainBottomBarActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        //onSaveInstanceState(new Bundle());
         restoreProductListFragment();
     }
 
-//    public void startWithDetailFragment(Product product){
-//        Bundle arguments = new Bundle();
-//        arguments.putSerializable(ArgumentKeys.PRODUCT_DETAIL_KEY, product);
-//        productDetailFragment.setArguments(arguments);
-//
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(R.id.mainActivityContainer, productDetailFragment)
-//                .addToBackStack(null)
-//                .commit();
-//    }
+    private void showOnBackButton(){
+        toolbar.setNavigationIcon(R.drawable.ic_backarrow);
+    }
+
+    private void hideOnBackButton(){
+        toolbar.setNavigationIcon(null);
+    }
 
     public void startWithDetailFragment(Product product){
         Bundle arguments = new Bundle();
@@ -100,6 +93,7 @@ public class MainBottomBarActivity extends AppCompatActivity {
                 .add(R.id.mainActivityContainer, productDetailFragment)
                 .addToBackStack(null)
                 .commit();
+        showOnBackButton();
     }
 
     public void restoreProductListFragment(){
@@ -107,6 +101,7 @@ public class MainBottomBarActivity extends AppCompatActivity {
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .show(productListFragment)
                 .commit();
+        hideOnBackButton();
     }
 
 

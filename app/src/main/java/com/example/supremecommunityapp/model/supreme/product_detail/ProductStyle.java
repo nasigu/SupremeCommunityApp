@@ -79,7 +79,7 @@ public class ProductStyle {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return "https:" + imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
@@ -95,7 +95,7 @@ public class ProductStyle {
     }
 
     public String getSwatchUrl() {
-        return swatchUrl;
+         return "https:" + swatchUrl;
     }
 
     public void setSwatchUrl(String swatchUrl) {
@@ -103,7 +103,7 @@ public class ProductStyle {
     }
 
     public String getSwatchUrlHi() {
-        return swatchUrlHi;
+        return "https:" + swatchUrlHi;
     }
 
     public void setSwatchUrlHi(String swatchUrlHi) {
@@ -111,7 +111,7 @@ public class ProductStyle {
     }
 
     public String getMobileZoomedUrl() {
-        return mobileZoomedUrl;
+        return "https:" + mobileZoomedUrl;
     }
 
     public void setMobileZoomedUrl(String mobileZoomedUrl) {
@@ -119,7 +119,7 @@ public class ProductStyle {
     }
 
     public String getMobileZoomedUrlHi() {
-        return mobileZoomedUrlHi;
+        return "https:" + mobileZoomedUrlHi;
     }
 
     public void setMobileZoomedUrlHi(String mobileZoomedUrlHi) {
@@ -127,7 +127,7 @@ public class ProductStyle {
     }
 
     public String getBiggerZoomedUrl() {
-        return biggerZoomedUrl;
+        return "https:" + biggerZoomedUrl;
     }
 
     public void setBiggerZoomedUrl(String biggerZoomedUrl) {

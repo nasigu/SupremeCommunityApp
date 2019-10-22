@@ -2,9 +2,12 @@ package com.example.supremecommunityapp.domain;
 
 
 import com.example.supremecommunityapp.model.supreme.MobileStock;
+import com.example.supremecommunityapp.model.supreme.Product;
 import com.example.supremecommunityapp.model.supreme.ProductsAndCategories;
 import com.example.supremecommunityapp.model.supreme.product_detail.ProductDetail;
 
+
+import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
