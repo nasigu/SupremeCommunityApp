@@ -8,7 +8,7 @@ import com.squareup.picasso.Picasso;
 
 public abstract class ProductDetailStylePreviewViewHolder extends RecyclerView.ViewHolder {
 
-    public ProductDetailStylePreviewViewHolder(View itemView, Picasso picasso) {
+    public ProductDetailStylePreviewViewHolder(View itemView) {
         super(itemView);
     }
 

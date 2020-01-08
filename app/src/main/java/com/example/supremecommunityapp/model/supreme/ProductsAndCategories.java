@@ -17,25 +17,37 @@ public class ProductsAndCategories {
 
     public ArrayList<Product> getProducts() {
         return products;
-
     }
 
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
 
-    public ArrayList<Product> convertAllToProducts(){
-        products.addAll(shirts);
-        products.addAll(bags);
-        products.addAll(accessories);
-        products.addAll(pants);
-        products.addAll(jackets);
-        products.addAll(skate);
-        products.addAll(hats);
-        products.addAll(sweatshirts);
-        products.addAll(topsSweaters);
-        products.addAll(_new);
-        return products;
+    public ArrayList<Product> convertAllToProducts() {
+        if (jackets != null)
+            products.addAll(jackets);
+        if (sweatshirts != null)
+            products.addAll(sweatshirts);
+        if (shirts != null)
+            products.addAll(shirts);
+        if (pants != null)
+            products.addAll(pants);
+        if (topsSweaters != null)
+            products.addAll(topsSweaters);
+        if (bags != null)
+            products.addAll(bags);
+        if (accessories != null)
+            products.addAll(accessories);
+        if (skate != null)
+            products.addAll(skate);
+        if (hats != null)
+            products.addAll(hats);
+        if (_new != null)
+            products.addAll(_new);
+        if (TShirts != null)
+            products.addAll(TShirts);
+
+            return products;
     }
 
     @SerializedName("Shirts")
@@ -68,44 +80,9 @@ public class ProductsAndCategories {
     @SerializedName("new")
     @Expose
     private List<Product> _new = null;
-
-
-//    public void getAllProducts(){
-//        getProducts().add()
-//    }
-
-//    @SerializedName("Shirts")
-//    @Expose
-//    private List<Shirt> shirts = null;
-//    @SerializedName("Bags")
-//    @Expose
-//    private List<Bag> bags = null;
-//    @SerializedName("Accessories")
-//    @Expose
-//    private List<Accessory> accessories = null;
-//    @SerializedName("Pants")
-//    @Expose
-//    private List<Pant> pants = null;
-//    @SerializedName("Jackets")
-//    @Expose
-//    private List<Jacket> jackets = null;
-//    @SerializedName("Skate")
-//    @Expose
-//    private List<Skate> skate = null;
-//    @SerializedName("Hats")
-//    @Expose
-//    private List<Hat> hats = null;
-//    @SerializedName("Sweatshirts")
-//    @Expose
-//    private List<Sweatshirt> sweatshirts = null;
-//    @SerializedName("Tops/Sweaters")
-//    @Expose
-//    private List<TopsSweater> topsSweaters = null;
-//    @SerializedName("new")
-//    @Expose
-//    private List<NewProduct> _new = null;
-
-
+    @SerializedName("T-Shirts")
+    @Expose
+    private List<Product> TShirts = null;
 
     public List<Product> getShirts() {
         return shirts;
@@ -185,6 +162,14 @@ public class ProductsAndCategories {
 
     public void setNew(List<Product> _new) {
         this._new = _new;
+    }
+
+    public List<Product> getTShirts() {
+        return TShirts;
+    }
+
+    public void setTShirts(List<Product> TShirts) {
+        this.TShirts = TShirts;
     }
 
 }

@@ -6,5 +6,5 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 
 public interface ProductDetailStylePreviewViewHolderFactory {
-    RecyclerView.ViewHolder createViewHolder(View parent, Picasso picasso);
+    RecyclerView.ViewHolder createViewHolder(View parent);
 }

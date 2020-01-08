@@ -2,22 +2,21 @@ package com.example.supremecommunityapp.domain.entity;
 
 public class SupremeStock {
 
-
     private String imageUrl;
 
     private String imageUrlHi;
 
     private String price;
 
-    private Integer salePrice;
+    private String salePrice;
 
     private Boolean newItem;
 
     private Integer position;
 
-    private Integer priceEuro;
+    private String priceEuro;
 
-    private Integer salePriceEuro;
+    private String salePriceEuro;
 
     public String getImageUrl() {
         return imageUrl;
@@ -43,11 +42,11 @@ public class SupremeStock {
         this.price = supremePriceConverter(price);
     }
 
-    public Integer getSalePrice() {
+    public String getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(Integer salePrice) {
+    public void setSalePrice(String salePrice) {
         this.salePrice = salePrice;
     }
 
@@ -67,19 +66,19 @@ public class SupremeStock {
         this.position = position;
     }
 
-    public Integer getPriceEuro() {
+    public String getPriceEuro() {
         return priceEuro;
     }
 
-    public void setPriceEuro(Integer priceEuro) {
+    public void setPriceEuro(String priceEuro) {
         this.priceEuro = priceEuro;
     }
 
-    public Integer getSalePriceEuro() {
+    public String getSalePriceEuro() {
         return salePriceEuro;
     }
 
-    public void setSalePriceEuro(Integer salePriceEuro) {
+    public void setSalePriceEuro(String salePriceEuro) {
         this.salePriceEuro = salePriceEuro;
     }
 

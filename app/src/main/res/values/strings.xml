@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SupremeCommunityApp</string>
+    <string name="error_load_data_failed_title">Что-то пошло не так…\n¯\_(ツ)_/¯</string>
+    <string name="error_load_data_failed">Проверьте подключение к Интернету\nи повторите попытку</string>
+
+
+    <string name="product_detail_price_dollar_placeholder">$%1$s</string>
+    <string name="product_detail_price_euro_placeholder">€%1$s</string>
+
+
+    <!--Content Description-->
+    <string name="cd_image_of_product">Изображение товара</string>
+
+    <!--Content Description-->
 </resources>

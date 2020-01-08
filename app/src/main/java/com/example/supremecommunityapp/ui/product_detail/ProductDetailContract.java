@@ -12,7 +12,7 @@ public class ProductDetailContract {
         void showLoaded();
         void showError(String error);
         void updateContent(ProductDetail productDetail);
-        void onStyleButtonClicked(ProductStyle productStyle);
+        void onStyleButtonClicked(int position);
 
     }
 

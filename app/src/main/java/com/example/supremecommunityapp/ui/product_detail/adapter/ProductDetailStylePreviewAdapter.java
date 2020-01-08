@@ -28,7 +28,7 @@ public class ProductDetailStylePreviewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final RecyclerView.ViewHolder viewHolder = productDetailStylePreviewViewHolder.createViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.product_detail_style_preview_item, parent, false), picasso);
+                .inflate(R.layout.product_detail_style_preview_item, parent, false));
         viewHolder.itemView.setOnClickListener(v -> onStylePreviewClicked(viewHolder.getAdapterPosition()));
         return viewHolder;
     }
@@ -39,7 +39,7 @@ public class ProductDetailStylePreviewAdapter extends RecyclerView.Adapter {
     }
 
     private void onStylePreviewClicked(int adapterPosition) {
-        productDetailView.onStyleButtonClicked(productStyleList.get(adapterPosition));
+        productDetailView.onStyleButtonClicked(adapterPosition);
     }
 
 

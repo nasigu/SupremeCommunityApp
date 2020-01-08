@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.supremecommunityapp.R;
 import com.example.supremecommunityapp.model.supreme.Product;
 import com.example.supremecommunityapp.ui.helpers.ScaleConverter;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 
@@ -32,12 +33,24 @@ public class ProductListViewHolderNormal extends ProductListViewHolder {
     @Override
     public void bind(Product product) {
         productName.setText(product.getName());
-        if(product.getImageUrl() != ""){
-            picasso.with(productImage.getContext())
-                    .load(product.getImageUrl())
-                    .fit()
-                    .into(productImage);
+        if(!product.getImageUrl().equals("")){
+            Picasso.with(productImage.getContext())
+                    .load(product.getImageUrl()) // thumbnail url goes here
+                    .into(productImage, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            Picasso.with(productImage.getContext())
+                                    .load(product.getImageUrlHi()) // image url goes here
+                                    .placeholder(productImage.getDrawable())
+                                    .into(productImage);
+                        }
+                        @Override
+                        public void onError() {
+
+                        }
+                    });
         }
+        productPrice.setText(String.format(itemView.getResources().getString(R.string.product_detail_price_euro_placeholder), String.valueOf((product.getPrice()/100))));
     }
 
     @Override

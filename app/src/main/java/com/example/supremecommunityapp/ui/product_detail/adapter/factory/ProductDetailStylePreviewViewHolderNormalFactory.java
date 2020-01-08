@@ -17,11 +17,11 @@ public class ProductDetailStylePreviewViewHolderNormalFactory implements Product
     }
 
     @Override
-    public RecyclerView.ViewHolder createViewHolder(View parent, Picasso picasso) {
-        return create(parent, picasso);
+    public RecyclerView.ViewHolder createViewHolder(View parent) {
+        return create(parent);
     }
 
-    private ProductDetailStylePreviewViewHolderNormal create(View parent, Picasso picasso){
-        return new ProductDetailStylePreviewViewHolderNormal(parent, picasso);
+    private ProductDetailStylePreviewViewHolderNormal create(View parent){
+        return new ProductDetailStylePreviewViewHolderNormal(parent);
     }
 }

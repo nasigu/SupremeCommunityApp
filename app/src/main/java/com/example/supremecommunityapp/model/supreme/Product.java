@@ -85,6 +85,8 @@ public class Product extends BaseProduct implements Serializable, Parcelable {
         }
     };
 
+
+
     public String getImageUrl() {
         return "https:" + imageUrl;
     }
@@ -150,6 +152,7 @@ public class Product extends BaseProduct implements Serializable, Parcelable {
     }
 
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -191,6 +194,15 @@ public class Product extends BaseProduct implements Serializable, Parcelable {
             parcel.writeInt(salePriceEuro);
         }
     }
+
+    @Override public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        } Product guest = (Product) obj;
+        return imageUrl.equals(guest.imageUrl) && (getName().equals(guest.getName()) || (getName() != null && getName().equals(guest.getName()))) && (getCategoryName().equals(guest.getCategoryName()) || (getCategoryName() != null && getCategoryName() .equals(guest.getCategoryName()))); }
 
 
 }

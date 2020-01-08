@@ -4,9 +4,10 @@
     android:id="@+id/card_view"
     style="@style/ProductListCardView"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="190dp"
     android:layout_gravity="center"
-    card_view:cardCornerRadius="1dp">
+    android:layout_marginTop="14dp"
+    card_view:cardCornerRadius="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,31 +15,36 @@
         android:orientation="vertical">
 
         <ImageView
-        android:id="@+id/productImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/img_lights"
-        android:layout_gravity="center"/>
+            android:id="@+id/productImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_lights" />
 
-            <TextView
-                android:id="@+id/productName"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_gravity="start"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/unloadItem"/>
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/unloadItem"
+            android:textAlignment="center"
+            android:textColor="@color/productNameColor" />
 
-            <TextView
-                android:id="@+id/productPrice"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@color/unloadItem"/>
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/unloadItem"
+            android:textAlignment="center"
+            android:textColor="@color/productPriceColor" />
     </LinearLayout>
 </android.support.v7.widget.CardView>
